@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Scenes/Crane&Chain/Crane&Chain.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
