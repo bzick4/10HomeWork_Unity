@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Crane&Chain/Crane&Chain.unity
+    path: Assets/GameFolder/Scenes/Crane&Chain/Crane&Chain.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Pinball/Pinball.unity
+    path: Assets/GameFolder/Scenes/Pinball/Pinball.unity
     guid: 6e27a8dc10ea84837b393f648cf9b78b
   - enabled: 1
-    path: Assets/Scenes/Menu/Menu.unity
+    path: Assets/GameFolder/Scenes/Menu/Menu.unity
     guid: 33862ba0bc1e94768a2fa5f37b7d1535
   m_configObjects: {}
