@@ -49,15 +49,8 @@ public class SpringStart : MonoBehaviour
             Debug.Log($"нажал {springJoint.spring}");
             TransormSpring();
         }
+        
         if(Input.GetKeyUp(KeyCode.DownArrow))
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-             Debug.Log("нажал");
-            TransormSpring();
-        }
-
-        if(Input.GetKeyDown(KeyCode.DownArrow))
         { 
             Debug.Log($"отпустил {springJoint.spring}");
             SpringTo();
