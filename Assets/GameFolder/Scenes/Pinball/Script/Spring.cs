@@ -16,7 +16,7 @@ public class SpringStart : MonoBehaviour
     private void Update()
     {
         Key();
-        TransormSpring();
+
     }
 
     public void StartLaunch()
@@ -51,11 +51,11 @@ public class SpringStart : MonoBehaviour
     }
     public void Key()
     {
-        // if (Input.GetKeyDown(KeyCode.DownArrow))
-        // {
-        //     Debug.Log("нажал");
-        //     TransormSpring();
-        // }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+             Debug.Log("нажал");
+            TransormSpring();
+        }
 
         if(Input.GetKeyDown(KeyCode.DownArrow))
         { 
