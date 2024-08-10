@@ -12,18 +12,18 @@ public class SpringStart : MonoBehaviour
     /// for SpringTo
     /// </summary>
     [SerializeField] private float speed, springForce, damp;
-   // [SerializeField] private GameObject launch, launchPoint;
-    [SerializeField] private SpringJoint springJoint;
+     private SpringJoint springJoint;
     public bool isStart { get; private set; }
-    
-    private void Update()
+
+    private void Start()
     {
-        Key();
+        springJoint = GetComponent<SpringJoint>();
     }
     public void StartLaunch()
     {
         isStart = true;
     }
+    
     public void StopLaunch()
     {
         isStart = false;
@@ -35,25 +35,12 @@ public class SpringStart : MonoBehaviour
         springJoint.damper = damp;
     }
 
-    private void TransormSpring()
+    public void TransormSpring()
     {
         springJoint.spring = 0f;
         Vector3 direction = (targetPoint.position - transform.position).normalized; 
         transform.position += direction * speed * Time.deltaTime;
         Debug.Log($"Move ON ");
     }
-    public void Key()
-    {
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            Debug.Log($"нажал {springJoint.spring}");
-            TransormSpring();
-        }
-        
-        if(Input.GetKeyUp(KeyCode.DownArrow))
-        { 
-            Debug.Log($"отпустил {springJoint.spring}");
-            SpringTo();
-        }
-    }
+    
 }

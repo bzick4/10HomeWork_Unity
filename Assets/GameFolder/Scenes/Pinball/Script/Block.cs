@@ -1,41 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    [SerializeField] private float springForce, motorForce, limitsMax;
-    [SerializeField]private GameObject blockElementLeft, blockElementRight;
-    private HingeJoint hingeJoint;
+    [SerializeField] private float _motorForce=500, _targetVelocity, _limitsMax, _limitsMin;
+    
+    private HingeJoint _hingeJoint;
 
-    private void Update()
+    private void Start()
     {
-        KeyPut();
+        _hingeJoint = GetComponent<HingeJoint>();
     }
 
-    void BlockElement()
+    private void UseMotor()
     {
-        hingeJoint = blockElementLeft.GetComponent<HingeJoint>();
-        hingeJoint = blockElementRight.GetComponent<HingeJoint>();
-        hingeJoint.useSpring = true;
-        JointSpring blockSpring = hingeJoint.spring;
-        blockSpring.spring = springForce;
+        _hingeJoint.useMotor = true;
+        JointMotor blockMotor = _hingeJoint.motor;
+        blockMotor.force = _motorForce;
+        blockMotor.targetVelocity = _targetVelocity;
+        _hingeJoint.motor = blockMotor;
     }
 
-    public void KeyPut()
+    private void UseLimits()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Debug.Log("KKKKKKKKK");
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("LLLLLLLLLL");
-        }
+        _hingeJoint.useLimits = true;
+        JointLimits blockLimits = _hingeJoint.limits;
+        blockLimits.max = _limitsMax;
+        blockLimits.min = _limitsMin; 
+        _hingeJoint.limits=blockLimits;
     }
-    
-    
-    
+
+    public void BlockOn()
+    {
+        UseMotor();
+        UseLimits();
+    }
+
+    public void BlockOff()
+    {
+        _hingeJoint.useMotor = false;
+    }
 }

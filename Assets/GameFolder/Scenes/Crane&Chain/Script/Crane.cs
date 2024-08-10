@@ -7,9 +7,8 @@ public class Crane : MonoBehaviour
 {
     [SerializeField] public float speed = 0; // скорость
     public bool isStartRotate { get; private set; }
-    private Rigidbody rbCrane;
    
-    
+    private Rigidbody rbCrane;
 
     public void StartRotate()
     {
