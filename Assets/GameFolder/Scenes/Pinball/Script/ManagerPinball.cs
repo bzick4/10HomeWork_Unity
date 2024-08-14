@@ -52,12 +52,14 @@ public class ManagerPinball : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.RightArrow))
         {
             _blockRight.BlockOff();
+            _blockRight.GetComponent<Rigidbody>.isKinematic = false;
             Debug.Log("righ off");
         }
 
         if (Input.GetKeyUp(KeyCode.LeftArrow))
         {
             _blockLeft.BlockOff();
+            _blockLeft.GetComponent<Rigidbody>.isKinematic = false;
             Debug.Log("Left off");
         }
         if (Input.GetKeyUp(KeyCode.DownArrow))
