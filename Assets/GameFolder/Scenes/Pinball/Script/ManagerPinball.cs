@@ -29,12 +29,14 @@ public class ManagerPinball : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             _blockRight.BlockOn();
+            _blockRight.GetComponent<Rigidbody>().isKinematic = false;
             Debug.Log("Right Arrow");
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             _blockLeft.BlockOn();
+            _blockLeft.GetComponent<Rigidbody>().isKinematic = false;
             Debug.Log("Left Arrow");
         }
         
